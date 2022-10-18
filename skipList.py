@@ -1,4 +1,5 @@
 import random
+from unittest import skip
 
 class Node:
 
@@ -30,7 +31,7 @@ class SkipList:
             while curr_ptr.forward[i] and curr_ptr.forward[i].key <key:
                 curr_ptr=curr_ptr.forward[i]
             update[i]=curr_ptr
-        
+        print()
         curr_ptr  = curr_ptr.forward[0]
         #idx = curr_ptr.index
         idx = update[0].index
@@ -42,14 +43,25 @@ class SkipList:
                     update[i] = self.head
                 self.level = rand_level
             
-            new_node = Node(key,rand_level,idx+1)
+            new_node = Node(key,rand_level)
             for i in range(rand_level+1):
                 new_node.forward[i] = update[i].forward[i]
                 update[i].forward[i] = new_node
 
             print(f"Successfully inserted key {key}.")
             self.sksize+=1
-
+    
+    def indexing(self):
+        head_ptr  = self.head
+        node_ptr = head_ptr.forward[0]
+        idx=1
+        while node_ptr!=None:
+            # print(node_ptr.key,end=" ")
+            node_ptr.index=idx
+            node_ptr = node_ptr.forward[0]
+            idx+=1
+        print()
+    
     def find(self,key):
         ptr = self.head
 
@@ -65,6 +77,7 @@ class SkipList:
         else:
             print("Key not Found!!!")
             return 0
+
     def findIndex(self,key_index):
         ptr = self.head
 
@@ -201,3 +214,5 @@ if __name__ == "__main__":
         continue_flag = (y=="y" or y=="Y")
         if(continue_flag):
             choice = int(input("Enter your choice again: "))
+        
+
