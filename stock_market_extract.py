@@ -12,6 +12,7 @@ def prepare_skip_for_stock_data(list_data,max_level,p_value):
     skip_list = SkipList(max_level,p_value)
     for i in range(0,len(list_data)):
         skip_list.insertElement(list_data[i])
+    skip_list.indexing()
     skip_list.display()
     return skip_list
 
