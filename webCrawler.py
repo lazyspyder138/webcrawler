@@ -53,8 +53,8 @@ class WebCrawlerNSE:
         
         stats_list=[]
         for r in range(1,rows):
-            date=self.chromedriver.find_element(By.XPATH,"/html/body/div[9]/div/div/section/div/div/div/div[1]/div/div[2]/div/div[2]/div/div[4]/div/div[1]/section/div/div[3]/div/table/tbody/tr["+str(r)+"]/td["+str(1)+"]").text
-            stat=self.chromedriver.find_element(By.XPATH,"/html/body/div[9]/div/div/section/div/div/div/div[1]/div/div[2]/div/div[2]/div/div[4]/div/div[1]/section/div/div[3]/div/table/tbody/tr["+str(r)+"]/td["+str(6)+"]").text
+            date=self.chromedriver.find_element(By.XPATH,"/html/body/div[9]/div/div/section/div/div/div/div[1]/div/div[2]/div/div/div/div[4]/div/div[1]/section/div/div[3]/div/table/tbody/tr["+str(r)+"]/td["+str(1)+"]").text
+            stat=self.chromedriver.find_element(By.XPATH,"/html/body/div[9]/div/div/section/div/div/div/div[1]/div/div[2]/div/div/div/div[4]/div/div[1]/section/div/div[3]/div/table/tbody/tr["+str(r)+"]/td["+str(6)+"]").text
             print(date,'       ',stat)
             # stats_list.append((stat,date))
             stats_list.append(stat)
